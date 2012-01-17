@@ -594,7 +594,7 @@
 			if (!this.settings.preventSlideshow){
 				if (!Util.isNothing(this.carousel)){
 					if (!Util.isNothing(this.toolbar) && this.toolbar.isVisible){
-						this.toolbar.fadeOut();
+                        this.fadeOutToolbarIfVisible();
 					}
 					this.carousel.startSlideshow();
 				}
@@ -711,7 +711,7 @@
 				Util.Events.fire(this, PhotoSwipe.EventTypes.onZoomPanRotateShow);
 				
 				if (!Util.isNothing(this.toolbar) && this.toolbar.isVisible){
-					this.toolbar.fadeOut();
+                    this.fadeOutToolbarIfVisible();
 				}
 				
 			}
