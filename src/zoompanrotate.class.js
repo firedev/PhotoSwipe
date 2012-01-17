@@ -102,26 +102,9 @@
 			
 			Util.DOM.insertBefore(this.el, uiLayer.el, parentEl);
 			
-			if (Util.Browser.iOS){
-				this.containerEl = Util.DOM.createElement('div');
-				Util.DOM.setStyle(this.containerEl, {
-					left: 0,
-					top: 0,
-					width: width,
-					height: height,
-					position: 'absolute',
-					zIndex: 1
-				});
-				Util.DOM.appendChild(this.imageEl, this.containerEl);
-				Util.DOM.appendChild(this.containerEl, this.el);
-				Util.Animation.resetTranslate(this.containerEl);
-				Util.Animation.resetTranslate(this.imageEl);
-				this.transformEl = this.containerEl;
-			}
-			else{
-				Util.DOM.appendChild(this.imageEl, this.el);
-				this.transformEl = this.imageEl;
-			}
+			Util.DOM.appendChild(this.imageEl, this.el);
+			this.transformEl = this.imageEl;
+			
 			
 		},
 		
