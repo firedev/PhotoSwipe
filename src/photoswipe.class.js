@@ -1120,10 +1120,16 @@
 			switch(e.action){
 				
 				case Toolbar.ToolbarAction.next:
+                    if (this.isZoomActive()){
+                        this.destroyZoomPanRotate();
+                    }
 					this.next();
 					break;
 				
 				case Toolbar.ToolbarAction.previous:
+                    if (this.isZoomActive()){
+                        this.destroyZoomPanRotate();
+                    }
 					this.previous();
 					break;
 					
