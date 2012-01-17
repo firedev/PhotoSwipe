@@ -996,13 +996,11 @@
 					case Util.TouchElement.ActionTypes.swipeLeft:
 						this.destroyZoomPanRotate();
 						this.next();
-						this.toggleToolbar();
 						break;
 						
 					case Util.TouchElement.ActionTypes.swipeRight:
 						this.destroyZoomPanRotate();
 						this.previous();
-						this.toggleToolbar();
 						break;
 				}
 			
