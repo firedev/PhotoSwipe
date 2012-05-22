@@ -1,3 +1,8 @@
+Release v.3.0.4ourdoings1
+-------------------------
+
+- Added keyHandler option to allow customization of keydown handling
+
 PhotoSwipe - The web image gallery for your mobile device
 =========================================================
 
@@ -20,9 +25,8 @@ It'd be fantastic to see how you have implemented PhotoSwipe on your site! We're
 
 
 
-Latest Release v3.0.4
----------------------
-[Download](http://github.com/downloads/codecomputerlove/PhotoSwipe/code.photoswipe-3.0.4.zip)
+Release v3.0.4
+--------------
 
 - Fixed issue with toolbar buttons when a gallery has less than 3 images.
 
@@ -260,10 +264,10 @@ You can provide your own functions to tell PhotoSwipe how to work with your mark
 			
 		}
 
+- **keyHandler**: Function to specify how the gallery handles keydown events.  Return false if you handle the event, true if default keydown handling should continue.
 
-
-Keyboard controls for desktop browsers
---------------------------------------
+Default keyboard controls for desktop browsers
+----------------------------------------------
 
 - **Left cursor**: Previous image
 

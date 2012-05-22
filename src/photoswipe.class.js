@@ -150,6 +150,7 @@
 				zIndex: 1000,
 				backButtonHideEnabled: true,
 				enableKeyboard: true,
+				keyHandler: function(e) { return true; },
 				enableMouseWheel: true,
 				mouseWheelSpeed: 350,
 				autoStartSlideshow: false,
@@ -929,8 +930,10 @@
 		 * Function: onKeyDown
 		 */
 		onKeyDown: function(e){
-			
-			if (e.keyCode === 37) { // Left
+			if (!this.settings.keyHandler(e)) {
+				e.preventDefault();
+			}
+			else if (e.keyCode === 37) { // Left
 				e.preventDefault();
 				this.previous();
 			}
