@@ -753,7 +753,7 @@
 			var testEl, cacheImage;
 			
 			if (Util.Browser.msie){
-				testEl = document.createElement('div');
+				testEl = document.createElement('div','','');
 				if (Util.isNothing(testEl.style.msTransform)){
 					return false;
 				}
