@@ -21,7 +21,7 @@
 		metaData: null,
 		imageLoadHandler: null,
 		imageErrorHandler: null,
-		
+		dimensionInterval: null,
 		
 		
 		/*
@@ -39,6 +39,28 @@
 				}
 			}
 		
+		},
+		
+		
+		
+		
+		
+		/*
+		 * Function: dimensionCheck
+		 */
+		dimensionCheck: function(){
+		
+			if (this.imageEl.isLoading) {
+			    if (this.imageEl.naturalWidth && this.imageEl.naturalHeight) {
+				this.imageLoadHandler();
+				this.imageEl.onload();
+				clearInterval(this.dimensionInterval);
+				return;
+			    }
+			} else {
+			    clearInterval(this.dimensionInterval);
+			}
+
 		},
 		
 		
@@ -99,7 +121,8 @@
 			this.imageEl.onabort = this.imageErrorHandler;
 			this.imageEl.originalSrc = this.src;
 			this.imageEl.src = this.src;
-			
+		        this.dimensionInterval = setInterval(this.dimensionCheck.bind(this), 500);
+
 		},
 		
 		
