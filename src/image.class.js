@@ -53,7 +53,9 @@
 			if (this.imageEl.isLoading) {
 			    if (this.imageEl.naturalWidth && this.imageEl.naturalHeight) {
 				this.imageLoadHandler();
-				this.imageEl.onload();
+				if (typeof this.imageEl.onload === 'function') {
+				    this.imageEl.onload();
+				}
 				clearInterval(this.dimensionInterval);
 				return;
 			    }
