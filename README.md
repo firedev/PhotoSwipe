@@ -1,3 +1,9 @@
+Release v.3.0.4ourdoings2
+-------------------------
+
+- Incorporate fixes from other github users
+- Start showing image when width/height available; don't just show a spinner until the image is fully loaded.  This makes for better UX in low-bandwidth situations.  (iOS still doesn't show the image until fully loaded.)
+
 Release v.3.0.4ourdoings1
 -------------------------
 
