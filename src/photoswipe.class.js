@@ -993,7 +993,7 @@
 						
 					case Util.TouchElement.ActionTypes.doubleTap:
 						this.destroyZoomPanRotate();
-						//this.toggleToolbar();
+						this.toggleToolbar();
 						break;
 					
 					case Util.TouchElement.ActionTypes.swipeLeft:
@@ -1031,7 +1031,7 @@
 						break;
 						
 					case Util.TouchElement.ActionTypes.tap:
-						//this.toggleToolbar();
+						this.toggleToolbar();
 						break;
 						
 					case Util.TouchElement.ActionTypes.doubleTap:
