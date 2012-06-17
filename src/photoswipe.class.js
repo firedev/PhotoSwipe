@@ -595,7 +595,7 @@
 			if (!this.settings.preventSlideshow){
 				if (!Util.isNothing(this.carousel)){
 					if (!Util.isNothing(this.toolbar) && this.toolbar.isVisible){
-						this.toolbar.fadeOut();
+                        this.fadeOutToolbarIfVisible();
 					}
 					this.carousel.startSlideshow();
 				}
@@ -712,7 +712,7 @@
 				Util.Events.fire(this, PhotoSwipe.EventTypes.onZoomPanRotateShow);
 				
 				if (!Util.isNothing(this.toolbar) && this.toolbar.isVisible){
-					this.toolbar.fadeOut();
+                    this.fadeOutToolbarIfVisible();
 				}
 				
 			}
@@ -993,19 +993,17 @@
 						
 					case Util.TouchElement.ActionTypes.doubleTap:
 						this.destroyZoomPanRotate();
-						this.toggleToolbar();
+						//this.toggleToolbar();
 						break;
 					
 					case Util.TouchElement.ActionTypes.swipeLeft:
 						this.destroyZoomPanRotate();
 						this.next();
-						this.toggleToolbar();
 						break;
 						
 					case Util.TouchElement.ActionTypes.swipeRight:
 						this.destroyZoomPanRotate();
 						this.previous();
-						this.toggleToolbar();
 						break;
 				}
 			
@@ -1033,7 +1031,7 @@
 						break;
 						
 					case Util.TouchElement.ActionTypes.tap:
-						this.toggleToolbar();
+						//this.toggleToolbar();
 						break;
 						
 					case Util.TouchElement.ActionTypes.doubleTap:
@@ -1125,10 +1123,16 @@
 			switch(e.action){
 				
 				case Toolbar.ToolbarAction.next:
+                    if (this.isZoomActive()){
+                        this.destroyZoomPanRotate();
+                    }
 					this.next();
 					break;
 				
 				case Toolbar.ToolbarAction.previous:
+                    if (this.isZoomActive()){
+                        this.destroyZoomPanRotate();
+                    }
 					this.previous();
 					break;
 					
