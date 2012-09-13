@@ -50,6 +50,7 @@
 		toolbarBeforeHideHandler: null,
 		toolbarHideHandler: null,
 		mouseWheelHandler: null,
+		mouseWheelEventName: null,
 		zoomPanRotateTransformHandler: null,
 		
 		
@@ -436,8 +437,10 @@
 			
 			}
 			
+			this.mouseWheelEventName = Util.Browser.isEventSupported('mousewheel') ? 'mousewheel' : 'DOMMouseScroll';
+			
 			if (this.settings.enableMouseWheel){
-				Util.Events.add(window, 'mousewheel', this.mouseWheelHandler);
+				Util.Events.add(window, this.mouseWheelEventName, this.mouseWheelHandler);
 			}
 			
 			Util.Events.add(this.uiLayer, Util.TouchElement.EventTypes.onTouch, this.uiLayerTouchHandler);
@@ -481,7 +484,7 @@
 			}
 			
 			if (this.settings.enableMouseWheel){
-				Util.Events.remove(window, 'mousewheel', this.mouseWheelHandler);
+				Util.Events.remove(window, this.mouseWheelEventName, this.mouseWheelHandler);
 			}
 			
 			if (!Util.isNothing(this.uiLayer)){
