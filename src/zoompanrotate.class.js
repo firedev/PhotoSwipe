@@ -133,8 +133,9 @@
 		 */
 		setStartingTranslateFromCurrentTransform: function(){
 
-			var
-				transformValue = Util.coalesce(this.transformEl.style.webkitTransform, this.transformEl.style.MozTransform, this.transformEl.style.transform),
+			
+			var 
+				transformValue = Util.coalesce(this.transformEl.style.webkitTransform, this.transformEl.style.MozTransform, this.transformEl.style.OTransform, this.transformEl.style.transform),
 				transformExploded;
 
 			if (!Util.isNothing(transformValue)){
@@ -298,6 +299,7 @@
 				webkitTransform: transform,
 				MozTransform: transform,
 				msTransform: transform,
+				OTransform: transform,
 				transform: transform
 			});
 
