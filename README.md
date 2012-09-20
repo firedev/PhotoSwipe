@@ -1,14 +1,3 @@
-Release v.3.0.4
--------------------------
-
-- Incorporate fixes from other github users
-- Start showing image when width/height available; don't just show a spinner until the image is fully loaded.  This makes for better UX in low-bandwidth situations.  (iOS still doesn't show the image until fully loaded.)
-
-Release v.3.0.4ourdoings1
--------------------------
-
-- Added keyHandler option to allow customization of keydown handling
-
 PhotoSwipe - The web image gallery for your mobile device
 =========================================================
 
@@ -31,10 +20,12 @@ It'd be fantastic to see how you have implemented PhotoSwipe on your site! We're
 
 
 
-Release v3.0.4
---------------
+Latest Release v3.0.5
+---------------------
+[Download](http://github.com/downloads/codecomputerlove/PhotoSwipe/code.photoswipe-3.0.5.zip)
 
-- Fixed issue with toolbar buttons when a gallery has less than 3 images.
+- Fixed user agent string issues with Firefox for Android
+- Fixed iOS5 black screen issue when using pinch to zoom
 
 **Changes for v3**
 
@@ -90,7 +81,7 @@ Features
     - Presentation controlled via CSS
 
     - Set whether the gallery loops or not i.e. when you reach the end, is the next image the first image, or does the gallery show a bounce effect to indicate that you have reached the end.
-
+  
     - Hide or show captions and toolbar
 
     - Change caption and toolbar positions
@@ -104,32 +95,32 @@ Features
 Getting Started
 ---------------
 
-PhotoSwipe comes with an example site to help you get started.
+PhotoSwipe comes with an example site to help you get started. 
 
 There are two distributions of the library:
 
 - The default distribution optimised for WebKit and Mozilla based browsers. This distribution uses standard DOM querying and manipulation. It also uses CSS3 transformations for animations.
 
-- The jQuery distribution that uses jQuery as it's engine.
+- The jQuery distribution that uses jQuery as it's engine. 
 
 It is recommended for WebKit based mobile devices to use the default distribution. This negates a lot of the overhead from using jQuery. It does not require jQuery (so one less library to download to your mobile device!). The default distribution will also work on desktop WebKit browsers (such as Chrome and Safari) as well as Firefox 4 and above.
 
-Use the jQuery distibution if you need to support a wider range of browsers such as Internet Explorer etc.
+Use the jQuery distibution if you need to support a wider range of browsers such as Internet Explorer etc. 
 
 
 
 Getting Started - Default Distribution
 --------------------------------------
 
-See "examples/01-default.html".
+See "examples/01-default.html". 
 
 This example assumes no jQuery at all and is heavily optimised for WebKit and Mozilla browsers. PhotoSwipe.attach takes three parameters, an array of HTML elements, optional options and optional instance ID string.
 
-	// Set up PhotoSwipe with all anchor tags in the Gallery container
+	// Set up PhotoSwipe with all anchor tags in the Gallery container 
 	document.addEventListener('DOMContentLoaded', function(){
-
+		
 		var myPhotoSwipe = PhotoSwipe.attach( window.document.querySelectorAll('#Gallery a'), { enableMouseWheel: false , enableKeyboard: false } );
-
+		
 	}, false);
 
 
@@ -142,11 +133,11 @@ Getting Started - Default Distribution (with jQuery engine)
 
 See "examples/02-jquery.html". The plugin takes two parameters both of which optional; an options objectand an instance ID string.
 
-	// Set up PhotoSwipe with all anchor tags in the Gallery container
+	// Set up PhotoSwipe with all anchor tags in the Gallery container 
 	$(document).ready(function(){
-
+		
 		var myPhotoSwipe = $("#Gallery a").photoSwipe({ enableMouseWheel: false , enableKeyboard: false });
-
+		
 	});
 
 
@@ -154,7 +145,7 @@ See "examples/02-jquery.html". The plugin takes two parameters both of which opt
 Options
 -------
 
-- **allowUserZoom**: Allow the user to zoom / pan around images. Default = true
+- **allowUserZoom**: Allow the user to zoom / pan around images. Default = true 
 
 - **autoStartSlideshow**: Automatically starts the slideshow mode when PhotoSwipe is activated. Default = false
 
@@ -245,15 +236,15 @@ You can provide your own functions to tell PhotoSwipe how to work with your mark
 
 
 		document.addEventListener('DOMContentLoaded', function(){
-
+		
 			var myPhotoSwipe = PhotoSwipe.attach( window.document.querySelectorAll('#Gallery a'), {
-
-				getImageSource: function(el){
-					return el.getAttribute('rel');
+			
+				getImageSource: function(el){ 
+					return el.getAttribute('rel'); 
 				}
-
+				
 			} );
-
+		
 		}, false);
 
 
@@ -263,17 +254,17 @@ You can provide your own functions to tell PhotoSwipe how to work with your mark
 - **getImageMetaData**: Function to associated additional meta data against an image in the gallery. This meta data can then be used in your own code if you listen to the "onDisplayImage" event.
 
 		getImageMetaData: function(el){
-
+				
 			return {
 				longDescription: el.getAttribute(el, 'data-long-description')
 			}
-
+			
 		}
 
-- **keyHandler**: Function to specify how the gallery handles keydown events.  Return false if you handle the event, true if default keydown handling should continue.
 
-Default keyboard controls for desktop browsers
-----------------------------------------------
+
+Keyboard controls for desktop browsers
+--------------------------------------
 
 - **Left cursor**: Previous image
 
